@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vitrine Show - Showcase de Projetos Inovadores">
+    <title>Vitrine Show - Seus Melhores Projetos em Destaque</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <span class="logo-icon">✨</span>
+                    <span class="logo-text">Vitrine<span class="highlight">Show</span></span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Início</a></li>
+                    <li><a href="#features" class="nav-link">Features</a></li>
+                    <li><a href="#showcase" class="nav-link">Showcase</a></li>
+                    <li><a href="#contact" class="nav-link cta-btn">Contato</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Transforme Suas Ideias em
+                    <span class="gradient-text">Experiências Incríveis</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Showcase de projetos inovadores que combinam design excepcional,
+                    tecnologia de ponta e criatividade sem limites.
+                </p>
+                <div class="hero-cta">
+                    <a href="#showcase" class="btn btn-primary">
+                        Explorar Projetos
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">Entrar em Contato</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Projetos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Satisfação</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Suporte</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Por Que Escolher a <span class="gradient-text">Vitrine Show</span>?</h2>
+                <p class="section-subtitle">Oferecemos o melhor em tecnologia e design</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <path d="M20 5L25 15L35 15L27.5 22.5L30 35L20 27.5L10 35L12.5 22.5L5 15L15 15L20 5Z" fill="url(#gradient1)"/>
+                            <defs>
+                                <linearGradient id="gradient1" x1="5" y1="5" x2="35" y2="35">
+                                    <stop stop-color="#667eea"/>
+                                    <stop offset="1" stop-color="#764ba2"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Design Excepcional</h3>
+                    <p class="feature-description">
+                        Interfaces modernas e intuitivas que encantam usuários e convertem visitantes.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <path d="M20 5V35M5 20H35M10 10L30 30M30 10L10 30" stroke="url(#gradient2)" stroke-width="2" stroke-linecap="round"/>
+                            <defs>
+                                <linearGradient id="gradient2" x1="5" y1="5" x2="35" y2="35">
+                                    <stop stop-color="#f093fb"/>
+                                    <stop offset="1" stop-color="#f5576c"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Performance Otimizada</h3>
+                    <p class="feature-description">
+                        Código limpo e eficiente para carregamento rápido e experiência fluida.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <rect x="5" y="10" width="30" height="25" rx="2" stroke="url(#gradient3)" stroke-width="2"/>
+                            <path d="M5 15H35" stroke="url(#gradient3)" stroke-width="2"/>
+                            <circle cx="10" cy="12.5" r="1" fill="url(#gradient3)"/>
+                            <circle cx="14" cy="12.5" r="1" fill="url(#gradient3)"/>
+                            <circle cx="18" cy="12.5" r="1" fill="url(#gradient3)"/>
+                            <defs>
+                                <linearGradient id="gradient3" x1="5" y1="10" x2="35" y2="35">
+                                    <stop stop-color="#4facfe"/>
+                                    <stop offset="1" stop-color="#00f2fe"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Responsivo</h3>
+                    <p class="feature-description">
+                        Perfeito em qualquer dispositivo, de smartphones a desktops 4K.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <path d="M20 35C28.2843 35 35 28.2843 35 20C35 11.7157 28.2843 5 20 5C11.7157 5 5 11.7157 5 20C5 28.2843 11.7157 35 20 35Z" stroke="url(#gradient4)" stroke-width="2"/>
+                            <path d="M20 15L25 20L20 25L15 20L20 15Z" fill="url(#gradient4)"/>
+                            <defs>
+                                <linearGradient id="gradient4" x1="5" y1="5" x2="35" y2="35">
+                                    <stop stop-color="#43e97b"/>
+                                    <stop offset="1" stop-color="#38f9d7"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Tecnologia Moderna</h3>
+                    <p class="feature-description">
+                        Desenvolvido com as últimas tecnologias e melhores práticas do mercado.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <path d="M10 20L15 25L30 10" stroke="url(#gradient5)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="20" cy="20" r="15" stroke="url(#gradient5)" stroke-width="2"/>
+                            <defs>
+                                <linearGradient id="gradient5" x1="5" y1="5" x2="35" y2="35">
+                                    <stop stop-color="#fa709a"/>
+                                    <stop offset="1" stop-color="#fee140"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">SEO Otimizado</h3>
+                    <p class="feature-description">
+                        Estrutura otimizada para motores de busca e máxima visibilidade online.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <path d="M20 5L25 18L35 20L25 22L20 35L15 22L5 20L15 18L20 5Z" stroke="url(#gradient6)" stroke-width="2"/>
+                            <defs>
+                                <linearGradient id="gradient6" x1="5" y1="5" x2="35" y2="35">
+                                    <stop stop-color="#a8edea"/>
+                                    <stop offset="1" stop-color="#fed6e3"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Suporte Dedicado</h3>
+                    <p class="feature-description">
+                        Equipe sempre disponível para ajudar você a alcançar seus objetivos.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Showcase Section -->
+    <section id="showcase" class="showcase">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Projetos em <span class="gradient-text">Destaque</span></h2>
+                <p class="section-subtitle">Conheça alguns dos nossos melhores trabalhos</p>
+            </div>
+            <div class="showcase-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link">Ver Projeto</a>
+                        </div>
+                        <div class="project-placeholder gradient-bg-1">
+                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                                <rect width="60" height="60" rx="10" fill="white" fill-opacity="0.1"/>
+                                <path d="M20 25L30 15L40 25M30 15V45" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">E-commerce Moderno</h3>
+                        <p class="project-description">Plataforma completa de vendas online com design minimalista e checkout otimizado.</p>
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link">Ver Projeto</a>
+                        </div>
+                        <div class="project-placeholder gradient-bg-2">
+                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                                <circle cx="30" cy="30" r="20" stroke="white" stroke-width="3"/>
+                                <path d="M30 20V30L37 37" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Dashboard Analytics</h3>
+                        <p class="project-description">Sistema de visualização de dados em tempo real com gráficos interativos.</p>
+                        <div class="project-tags">
+                            <span class="tag">Vue.js</span>
+                            <span class="tag">D3.js</span>
+                            <span class="tag">Firebase</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link">Ver Projeto</a>
+                        </div>
+                        <div class="project-placeholder gradient-bg-3">
+                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                                <path d="M15 30L25 40L45 20" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="30" cy="30" r="25" stroke="white" stroke-width="3"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">App de Produtividade</h3>
+                        <p class="project-description">Aplicativo mobile para gestão de tarefas com sincronização em nuvem.</p>
+                        <div class="project-tags">
+                            <span class="tag">React Native</span>
+                            <span class="tag">GraphQL</span>
+                            <span class="tag">AWS</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link">Ver Projeto</a>
+                        </div>
+                        <div class="project-placeholder gradient-bg-4">
+                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                                <rect x="15" y="20" width="30" height="20" rx="2" stroke="white" stroke-width="3"/>
+                                <path d="M15 26H45M22 20V26M38 20V26" stroke="white" stroke-width="3"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Plataforma de Ensino</h3>
+                        <p class="project-description">Sistema EAD completo com videoaulas, exercícios e certificados.</p>
+                        <div class="project-tags">
+                            <span class="tag">Next.js</span>
+                            <span class="tag">Prisma</span>
+                            <span class="tag">PostgreSQL</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link">Ver Projeto</a>
+                        </div>
+                        <div class="project-placeholder gradient-bg-5">
+                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                                <path d="M30 15L40 25H35V40H25V25H20L30 15Z" fill="white"/>
+                                <rect x="18" y="42" width="24" height="3" fill="white"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Portfolio Criativo</h3>
+                        <p class="project-description">Site de portfólio com animações impressionantes e design único.</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">GSAP</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link">Ver Projeto</a>
+                        </div>
+                        <div class="project-placeholder gradient-bg-6">
+                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                                <circle cx="25" cy="25" r="8" stroke="white" stroke-width="3"/>
+                                <circle cx="40" cy="40" r="5" stroke="white" stroke-width="3"/>
+                                <path d="M30 30L37 37M20 35L15 40M35 20L40 15" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Rede Social</h3>
+                        <p class="project-description">Plataforma social com feed personalizado e sistema de mensagens.</p>
+                        <div class="project-tags">
+                            <span class="tag">Angular</span>
+                            <span class="tag">NestJS</span>
+                            <span class="tag">Redis</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Pronto Para Criar Algo <span class="gradient-text">Incrível</span>?</h2>
+                <p class="cta-description">Vamos transformar suas ideias em realidade. Entre em contato e comece seu projeto hoje mesmo.</p>
+                <div class="cta-buttons">
+                    <a href="mailto:contato@vitrineshow.com" class="btn btn-primary btn-large">
+                        Iniciar Projeto
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#showcase" class="btn btn-secondary btn-large">Ver Mais Projetos</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span class="logo-icon">✨</span>
+                        <span class="logo-text">Vitrine<span class="highlight">Show</span></span>
+                    </div>
+                    <p class="footer-description">
+                        Transformando ideias em experiências digitais memoráveis desde 2024.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="GitHub">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Links Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#showcase">Showcase</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Serviços</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Web Design</a></li>
+                        <li><a href="#">Desenvolvimento</a></li>
+                        <li><a href="#">Mobile Apps</a></li>
+                        <li><a href="#">Consultoria</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Contato</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:contato@vitrineshow.com">contato@vitrineshow.com</a></li>
+                        <li><a href="tel:+5511999999999">+55 11 99999-9999</a></li>
+                        <li>São Paulo, Brasil</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Vitrine Show. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
