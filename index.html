@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automação Instagram - Isca Digital</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: rgba(255,255,255,0.3);
+            top: 0;
+        }
+
+        .step {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .step-content {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            width: 45%;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .step-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .step:nth-child(odd) .step-content {
+            margin-left: auto;
+        }
+
+        .step:nth-child(even) .step-content {
+            margin-right: auto;
+        }
+
+        .step-number {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.3em;
+            border: 4px solid white;
+            z-index: 10;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .step-title {
+            font-size: 1.5em;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .step-description {
+            color: #555;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .tools {
+            margin-top: 20px;
+        }
+
+        .tool-section {
+            margin-bottom: 15px;
+        }
+
+        .tool-label {
+            font-weight: bold;
+            color: #764ba2;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .tool-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .tool-name {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .badge {
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.75em;
+            font-weight: bold;
+        }
+
+        .badge-free {
+            background: #28a745;
+            color: white;
+        }
+
+        .badge-paid {
+            background: #ffc107;
+            color: #333;
+        }
+
+        .pros-cons {
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        .pros {
+            color: #28a745;
+            margin-bottom: 5px;
+        }
+
+        .cons {
+            color: #dc3545;
+        }
+
+        .details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .details.active {
+            max-height: 2000px;
+        }
+
+        .expand-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .expand-btn:hover {
+            background: #764ba2;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+
+            .step-content {
+                width: calc(100% - 80px);
+                margin-left: 80px !important;
+            }
+
+            .step-number {
+                left: 30px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+        }
+
+        .icon {
+            display: inline-block;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Automação Instagram com Isca Digital</h1>
+
+        <div class="timeline">
+            <!-- PASSO 1 -->
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content" onclick="toggleDetails(this)">
+                    <div class="step-title">📱 Criação do Conteúdo</div>
+                    <div class="step-description">
+                        Crie um post ou Reels no Instagram com a chamada para ação: "Comente 'QUERO' para receber gratuitamente"
+                    </div>
+                    <button class="expand-btn">Ver ferramentas →</button>
+
+                    <div class="details">
+                        <div class="tools">
+                            <div class="tool-section">
+                                <span class="tool-label">🎨 Ferramentas de Design:</span>
+
+                                <div class="tool-card">
+                                    <div class="tool-name">
+                                        <span>Canva</span>
+                                        <span class="badge badge-free">GRATUITO</span>
+                                    </div>
+                                    <div class="pros-cons">
+                                        <div class="pros">✅ Templates prontos, fácil de usar, versão grátis robusta</div>
+                                        <div class="cons">❌ Marcas d'água na versão grátis, menos recursos avançados</div>
+                                    </div>
+                                </div>
+
+                                <div class="tool-card">
+                                    <div class="tool-name">
+                                        <span>CapCut</span>
+                                        <span class="badge badge-free">GRATUITO</span>
+                                    </div>
+                                    <div class="pros-cons">
+                                        <div class="pros">✅ Perfeito para Reels, efeitos virais, gratuito completo</div>
+                                        <div class="cons">❌ Curva de aprendizado inicial</div>
+                                    </div>
+                                </div>
+
+                                <div class="tool-card">
+                                    <div class="tool-name">
+                                        <span>Adobe Express</span>
+                                        <span class="badge badge-paid">PAGO</span>
+                                    </div>
+                                    <div class="pros-cons">
+                                        <div class="pros">✅ Profissional, integração Adobe, sem marcas d'água</div>
+                                        <div class="cons">❌ Custo mensal, pode ser complexo para iniciantes</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PASSO 2 -->
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content" onclick="toggleDetails(this)">
+                    <div class="step-title">🤖 Automação de Comentários</div>
+                    <div class="step-description">
+                        Ferramenta que detecta quando alguém comenta "QUERO" e responde automaticamente + envia DM
+                    </div>
+                    <button class="expand-btn">Ver ferramentas →</button>
+
+                    <div class="details">
+                        <div class="tools">
+                            <div class="tool-section">
+                                <span class="tool-label">⚡ Ferramentas de Automação:</span>
+
+                                <div class="tool-card">
+                                    <div class="tool-name">
+                                        <span>ManyChat</span>
+                                        <span class="badge badge-free">1K LEADS GRÁTIS</span>
+                                    </div>
+                                    <div class="pros-cons">
+                                        <div class="pros">✅ Mais popular, 1.000 contatos grátis, interface amigável, integração fácil</div>
+                                        <div class="cons">❌ Após 1k leads é pago ($15/mês), limite de mensagens na versão grátis</div>
+                                    </div>
+                                </div>
+
+                                <div class="tool-card">
+                                    <div class="tool-name">
+                                        <span>MiniChat</span>
+                                        <span class="badge badge-free">1K LEADS GRÁTIS</span>
+                                    </div>
+                                    <div class="pros-cons">
+                                        <div class="pros">✅ Similar ao ManyChat, 1.000 leads grátis, interface intuitiva</div>
+                                        <div class="cons">❌ Menos recursos que ManyChat, comunidade menor</div>
+                                    </div>
+                                </div>
+
+                                <div class="tool-card">
+                                    <div class="tool-name">
+                                        <span>Chatfuel</span>
+                                        <span class="badge badge-free">50 CONTATOS GRÁTIS</span>
+                                    </div>
+                                    <div class="pros-cons">
+                                        <div class="pros">✅ Poderoso, IA integrada, boas automações</div>
+                                        <div class="cons">❌ Apenas 50 contatos grátis, planos mais caros</div>
+                                    </div>
+                                </div>
+
+                                <div class="tool-card">
+                                    <div class="tool-name">
+                                        <span>InstaDM</span>
+                                        <span class="badge badge-paid">PAGO - R$97/mês</span>
+                                    </div>
+                                    <div class="pros-cons">
+                                        <div class="pros">✅ Solução brasileira, suporte em PT-BR, contatos ilimitados</div>
+                                        <div class="cons">❌ Custo mensal desde o início, menos recursos que concorrentes</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PASSO 3 -->
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content" onclick="toggleDetails(this)">
+                    <div class="step-title">📄 Hospedagem da Isca Digital</div>
+                    <div class="step-description">
+                        Upload do seu PDF, vídeo ou material digital que será entregue gratuitamente
+                    </div>
+                    <button class="expand-btn">Ver ferramentas →</button>
+
+                    <div class="details">
+                        <div class="tools">
+                            <div class="tool-section">
+                                <span class="tool-label">☁️ Armazenamento em Nuvem:</span>
+
+                                <div class="tool-card">
+                                    <div class="tool-name">
+                                        <span>Google Drive</span>
+                                        <span class="badge badge-free">15GB GRÁTIS</span>
+                                    </div>
+                                    <div class="pros-cons">
+                                        <div class="pros">✅ 15GB grátis, confiável, fácil compartilhamento, aceita qualquer arquivo</div>
+                                        <div class="cons">❌ Link pode ficar extenso, precisa configurar permissões</div>
+                                    </div>
+                                </div>
+
+                                <div class="tool-card">
+                                    <div class="tool-name">
+                                        <span>Dropbox</span>
+                                        <span class="badge badge-free">2GB GRÁTIS</span>
+                                    </div>
+                                    <div class="pros-cons">
+                                        <div class="pros">✅ Interface limpa, links curtos, profissional</div>
+                                        <div class="cons">❌ Apenas 2GB grátis, planos caros para expansão</div>
+                                    </div>
+                                </div>
+
+                                <div class="tool-card">
+                                    <div class="tool-name">
+                                        <span>OneDrive</span>
+                                        <span class="badge badge-free">5GB GRÁTIS</span>
+                                    </div>
+                                    <div class="pros-cons">
+                                        <div class="pros">✅ 5GB grátis, integração Microsoft, bom para documentos</div>
+                                        <div class="cons">❌ Interface menos intuitiva que Drive</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PASSO 4 -->
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content" onclick="toggleDetails(this)">
+                    <div class="step-title">🎯 Landing Page</div>
+                    <div class="step-description">
+                        Página de captura onde o lead baixa a isca gratuita e vê o produto/serviço oferecido
+                    </div>
+                    <button class="expand-btn">Ver ferramentas →</button>
+
+                    <div class="details">
+                        <div class="tools">
+                            <div class="tool-section">
+                                <span class="tool-label">🌐 Criadores de Landing Page:</span>
+
+                                <div class="tool-card">
+                                    <div class="tool-name">
+                                        <span>Beacons</span>
+                                        <span class="badge badge-free">GRATUITO</span>
+                                    </div>
+                                    <div class="pros-cons">
+                                        <div class="pros">✅ 100% grátis, fácil de usar, templates prontos, link na bio integrado</div>
+                                        <div class="cons">❌ Limitações de personalização, domínio da plataforma</div>
+                                    </div>
+                                </div>
+
+                                <div class="tool-card">
+                                    <div class="tool-name">
+                                        <span>Linktree</span>
+                                        <span class="badge badge-free">VERSÃO GRÁTIS</span>
+                                    </div>
+                                    <div class="pros-cons">
+                                        <div class="pros">✅ Popular, simples, reconhecido pelo público</div>
+                                        <div class="cons">❌ Funcionalidades limitadas no grátis, não é LP completa</div>
+                                    </div>
+                                </div>
+
+                                <div class="tool-card">
+                                    <div class="tool-name">
+                                        <span>Leadpages</span>
+                                        <span class="badge badge-paid">US$37/mês</span>
+                                    </div>
+                                    <div class="pros-cons">
+                                        <div class="pros">✅ Profissional, alta conversão, domínio próprio, templates otimizados</div>
+                                        <div class="cons">❌ Custo mensal, curva de aprendizado</div>
+                                    </div>
+                                </div>
+
+                                <div class="tool-card">
+                                    <div class="tool-name">
+                                        <span>Kiwify</span>
+                                        <span class="badge badge-free">GRATUITO</span>
+                                    </div>
+                                    <div class="pros-cons">
+                                        <div class="pros">✅ Brasileiro, gratuito, checkout integrado, bom para venda</div>
+                                        <div class="cons">❌ Templates básicos, menos profissional</div>
+                                    </div>
+                                </div>
+
+                                <div class="tool-card">
+                                    <div class="tool-name">
+                                        <span>Hotmart Pages</span>
+                                        <span class="badge badge-free">GRATUITO</span>
+                                    </div>
+                                    <div class="pros-cons">
+                                        <div class="pros">✅ Integrado com Hotmart, vendas automáticas, confiável</div>
+                                        <div class="cons">❌ Precisa ter conta Hotmart, comissões nas vendas</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PASSO 5 -->
+            <div class="step">
+                <div class="step-number">5</div>
+                <div class="step-content" onclick="toggleDetails(this)">
+                    <div class="step-title">🔗 Encurtador de Links</div>
+                    <div class="step-description">
+                        Transforma o link longo da landing page em um link curto e profissional para colocar no DM
+                    </div>
+                    <button class="expand-btn">Ver ferramentas →</button>
+
+                    <div class="details">
+                        <div class="tools">
+                            <div class="tool-section">
+                                <span class="tool-label">✂️ Encurtadores:</span>
+
+                                <div class="tool-card">
+                                    <div class="tool-name">
+                                        <span>Bitly</span>
+                                        <span class="badge badge-free">GRATUITO</span>
+                                    </div>
+                                    <div class="pros-cons">
+                                        <div class="pros">✅ Mais conhecido, estatísticas grátis, customização parcial</div>
+                                        <div class="cons">❌ Domínio personalizado só no pago, limite de links</div>
+                                    </div>
+                                </div>
+
+                                <div class="tool-card">
+                                    <div class="tool-name">
+                                        <span>TinyURL</span>
+                                        <span class="badge badge-free">GRATUITO</span>
+                                    </div>
+                                    <div class="pros-cons">
+                                        <div class="pros">✅ 100% gratuito, ilimitado, sem cadastro necessário</div>
+                                        <div class="cons">❌ Sem estatísticas, visual básico, sem personalização</div>
+                                    </div>
+                                </div>
+
+                                <div class="tool-card">
+                                    <div class="tool-name">
+                                        <span>Rebrandly</span>
+                                        <span class="badge badge-paid">US$29/mês</span>
+                                    </div>
+                                    <div class="pros-cons">
+                                        <div class="pros">✅ Domínio customizado, analytics avançado, profissional</div>
+                                        <div class="cons">❌ Pago desde início, recursos demais para uso básico</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PASSO 6 -->
+            <div class="step">
+                <div class="step-number">6</div>
+                <div class="step-content" onclick="toggleDetails(this)">
+                    <div class="step-title">📊 Integração e CRM</div>
+                    <div class="step-description">
+                        Conecte tudo e gerencie seus leads automaticamente para fazer follow-up e vendas
+                    </div>
+                    <button class="expand-btn">Ver ferramentas →</button>
+
+                    <div class="details">
+                        <div class="tools">
+                            <div class="tool-section">
+                                <span class="tool-label">🔄 Automação e CRM:</span>
+
+                                <div class="tool-card">
+                                    <div class="tool-name">
+                                        <span>Planilhas Google</span>
+                                        <span class="badge badge-free">GRATUITO</span>
+                                    </div>
+                                    <div class="pros-cons">
+                                        <div class="pros">✅ Gratuito, fácil integração via Zapier/Make, visualização simples</div>
+                                        <div class="cons">❌ Manual, sem automações avançadas, básico</div>
+                                    </div>
+                                </div>
+
+                                <div class="tool-card">
+                                    <div class="tool-name">
+                                        <span>Zapier</span>
+                                        <span class="badge badge-free">100 TAREFAS/MÊS</span>
+                                    </div>
+                                    <div class="pros-cons">
+                                        <div class="pros">✅ Conecta tudo, 100 tarefas grátis, fácil de usar</div>
+                                        <div class="cons">❌ Limite baixo no grátis, planos caros para escala</div>
+                                    </div>
+                                </div>
+
+                                <div class="tool-card">
+                                    <div class="tool-name">
+                                        <span>Make (Integromat)</span>
+                                        <span class="badge badge-free">1000 OPS GRÁTIS</span>
+                                    </div>
+                                    <div class="pros-cons">
+                                        <div class="pros">✅ Mais operações grátis, visual intuitivo, poderoso</div>
+                                        <div class="cons">❌ Curva de aprendizado maior que Zapier</div>
+                                    </div>
+                                </div>
+
+                                <div class="tool-card">
+                                    <div class="tool-name">
+                                        <span>HubSpot CRM</span>
+                                        <span class="badge badge-free">GRATUITO</span>
+                                    </div>
+                                    <div class="pros-cons">
+                                        <div class="pros">✅ CRM completo grátis, profissional, contatos ilimitados</div>
+                                        <div class="cons">❌ Complexo para iniciantes, recursos avançados são pagos</div>
+                                    </div>
+                                </div>
+
+                                <div class="tool-card">
+                                    <div class="tool-name">
+                                        <span>RD Station</span>
+                                        <span class="badge badge-paid">R$49/mês</span>
+                                    </div>
+                                    <div class="pros-cons">
+                                        <div class="pros">✅ Brasileiro, completo, automação de email marketing, suporte PT-BR</div>
+                                        <div class="cons">❌ Pago desde início, pode ser excessivo para pequenos volumes</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div style="background: white; padding: 30px; border-radius: 15px; margin-top: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+            <h2 style="color: #667eea; margin-bottom: 20px;">💡 Resumo do Fluxo Completo</h2>
+            <ol style="line-height: 2; color: #555; padding-left: 20px;">
+                <li><strong>Pessoa vê seu post/Reels</strong> e comenta "QUERO"</li>
+                <li><strong>ManyChat detecta</strong> o comentário automaticamente</li>
+                <li><strong>Responde no comentário</strong> + envia DM com link encurtado</li>
+                <li><strong>Lead clica no link</strong> e vai para sua Landing Page</li>
+                <li><strong>Na LP: baixa a isca grátis</strong> (seu PDF no Drive) e vê sua oferta</li>
+                <li><strong>Dados salvos automaticamente</strong> no CRM/Planilha via Zapier/Make</li>
+                <li><strong>Follow-up automático</strong> para converter em venda</li>
+            </ol>
+
+            <div style="margin-top: 30px; padding: 20px; background: #f0f4ff; border-radius: 10px; border-left: 5px solid #667eea;">
+                <h3 style="color: #667eea; margin-bottom: 10px;">🎁 Recomendação Setup 100% Gratuito (até 1k leads):</h3>
+                <ul style="line-height: 1.8; color: #555;">
+                    <li>📱 Design: <strong>Canva + CapCut</strong></li>
+                    <li>🤖 Automação: <strong>ManyChat</strong> (1.000 leads grátis)</li>
+                    <li>☁️ Hospedagem: <strong>Google Drive</strong> (15GB grátis)</li>
+                    <li>🌐 Landing Page: <strong>Beacons ou Kiwify</strong></li>
+                    <li>🔗 Encurtador: <strong>Bitly ou TinyURL</strong></li>
+                    <li>📊 CRM: <strong>Planilhas Google + Make</strong> (1000 ops grátis)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleDetails(element) {
+            const details = element.querySelector('.details');
+            const btn = element.querySelector('.expand-btn');
+
+            if (details.classList.contains('active')) {
+                details.classList.remove('active');
+                btn.textContent = 'Ver ferramentas →';
+            } else {
+                details.classList.add('active');
+                btn.textContent = 'Ocultar ferramentas ↑';
+            }
+        }
+    </script>
+</body>
+</html>
